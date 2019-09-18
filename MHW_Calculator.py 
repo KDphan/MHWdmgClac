@@ -1,0 +1,28 @@
+import sys
+import math
+from flask import Flask
+import os
+app = Flask(__name__)
+
+@app.route("/hello")
+def hello_world():
+   return "hello world"
+
+@app.route("/hell")    
+def re_calc():
+    print('Wanna calculate another weapon, Pard? (Y/N)')
+    while True:
+           
+        choice = input("> ")
+        if choice == 'b' :
+            print ("You win")
+            input("yay")
+            break
+        
+if __name__ == '__main__':
+    app.debug = True
+app.run(
+    host=os.getenv('LISTEN', '0.0.0.0'),
+    port=int(os.getenv('PORT', '8080')),
+  
+)
