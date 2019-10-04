@@ -1,24 +1,29 @@
 import sys
 import math
-from flask import Flask
+from MHWtruDMG import *
+from flask import Flask, request, render_template, redirect, url_for
 import os
 app = Flask(__name__)
 
-@app.route("/hello")
-def hello_world():
-   return "hello world"
+# @app.route('/success/<name>')
+# def success(name):
+#     return 'welcome %s' % name
 
-@app.route("/hell")    
-def re_calc():
-    print('Wanna calculate another weapon, Pard? (Y/N)')
-    while True:
-           
-        choice = input("> ")
-        if choice == 'b' :
-            print ("You win")
-            input("yay")
-            break
-        
+# @app.route('/login',methods = ['POST', 'GET'])
+# def login():
+#     if request.method == 'POST':
+#         name = request.form['nm']
+#         return 'welcome %s' % name
+#     else:
+#         user = request.args.get('nm')
+#         return redirect(url_for('success',name = user))
+
+@app.route('/mhw',methods = ['POST', 'GET'])
+def calc():
+    dmg_calc()
+    return dmg_calc() #send results to template with attacks
+
+
 if __name__ == '__main__':
     app.debug = True
 app.run(
@@ -26,3 +31,4 @@ app.run(
     port=int(os.getenv('PORT', '8080')),
   
 )
+
