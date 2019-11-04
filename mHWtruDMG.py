@@ -19,7 +19,8 @@ def re_calc():
         
             
 def dmg_calc():
-    WEAP = request.form['weap']
+    
+    dmg_calc.WEAP = request.form['weap']
     DMG  = request.form['dmg']
     ELEM = request.form['edmg']
     SHRP = request.form['sharp']
@@ -42,32 +43,37 @@ def dmg_calc():
     Bow     = float(DMG) // 1.2  
   
   #Sharpness Modifiers for raw damage
+    gun     = 1.00
     green   = 1.05
     blue    = 1.20
     white   = 1.32
   
   #Sharpness Modifiers for element damage
+    Egun     = 1.00
     Egreen   = 1.00
     Eblue    = 1.0625
     Ewhite   = 1.125
   
     weapons = {'hammer': hammer, 'horn': horn, 'SA': SA,'GS': GS,'CB': CB,'LS': LS,'IG': IG,'LanceGL': LanceGL,'HBG': HBG,'SNS': SNS ,'DB': DB, 'LBG': LBG, 'Bow': Bow}
           
-    sharpness  = {'green': green, 'blue': blue, 'white': white}
-    Esharpness = {'green': Egreen, 'blue': Eblue, 'white': Ewhite}
+    sharpness  = {'green': green, 'blue': blue, 'white': white, 'gun': gun}
+    Esharpness = {'green': Egreen, 'blue': Eblue, 'white': Ewhite, 'gun':Egun}
     
     eleSHRP = SHRP
-    truDmg = weapons[WEAP]
-    eleDmg = float(ELEM) // 10
-    truEleDmg = truDmg + eleDmg
-    truEleShrpDmg = (truDmg*sharpness[SHRP]) + (eleDmg*Esharpness[eleSHRP])
+    dmg_calc.truDmg = weapons[dmg_calc.WEAP]
+    dmg_calc.eleDmg = float(ELEM) // 10
+    truEleDmg = dmg_calc.truDmg + dmg_calc.eleDmg
+    dmg_calc.truEleShrpDmg = (dmg_calc.truDmg*sharpness[SHRP]) + (dmg_calc.eleDmg*Esharpness[eleSHRP])
     
-    damage_result = (" Weapon: " + str(WEAP) + 
-                    " \nDamage: " + str(truDmg) + 
-                    " \nElement: " + str(eleDmg) + 
-                    " \nTrue Damage: " + str(truEleShrpDmg))
     
-    return damage_result
+    # return WEAP, truDmg, eleDmg, truEleShrpDmg
+    
+    # damage_result = (" Weapon: " + str(WEAP) + 
+    #                 " \nDamage: " + str(truDmg) + 
+    #                 " \nElement: " + str(eleDmg) + 
+    #                 " \nTrue Damage: " + str(truEleShrpDmg))
+    
+    # return damage_result
       
     # def weap_calc():
     #     WEAP = input('What is your weapon?').casefold()

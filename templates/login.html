@@ -1,14 +1,48 @@
 <html>  
+<head>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+/* global $ */
+$('[name="weap"]').change(function() {
+  var b = $('[name="edmg"]');
+
+  var bEnabled = $(this).val() === "LBG";
+  b.prop("Disabled", !bEnabled)
+}).change() // this .change triggers the code to run when the page is ready.
+</script>
+</head>
+
+
    <body>  
       <form action = "https://bb426b8b55ff4855805b74cae4a607ff.vfs.cloud9.us-east-2.amazonaws.com/mhw" method = "post">  
-         <p>Enter Weapon:</p>
-         <p><input type = "text" name = "weap" /></p>
+         <p>Select Weapon:</p>
+         <p><select name = "weap" >
+           <option value="GS">Greatsword</option>
+           <option value="LS">Longsword</option>
+           <option value="hammer">Hammer</option>
+           <option value="horn">Hunting Horn</option>
+           <option value="LanceGL">Lance/Gunlance</option>
+           <option value="SNS">Sword and Shield</option>
+           <option value="DB">Dual Blades</option>
+           <option value="SA">Switch Axe</option>
+           <option value="CB">Charge Blade</option>
+           <option value="IG">Insect Glaive</option>
+           <option value="LBG">Light Bowgun</option>
+           <option value="HBG">Heavy Bowgun</option>
+           <option value="Bow">Bow</option>
+           
+         </select></p>
          <p>Enter Damage:</p>
          <p><input type = "number" name = "dmg" /></p>
          <p>Enter Element:</p>
          <p><input type = "number" name = "edmg" /></p>
-         <p>Enter Sharpness:</p>
-         <p><input type = "text" name = "sharp" /></p>
+         <p>Select Sharpness:</p>
+         <p><select name = "sharp">
+           <option value="green">Green</option>
+           <option value="blue">Blue</option>
+           <option value="white">White</option>
+           <option value="gun">Bowgun</option>
+         </select></p>
          <p><input type = "submit" value = "submit" /></p>
     </table>  
       </form>  
