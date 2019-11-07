@@ -1,22 +1,25 @@
-
-<!DOCTYPE html>
-
-<html>  
-    <head>
-        <script type="text/javascript">
-          function autoFill() {
-              var selectElements = document.getElementById("weap");
-              if (selectElements.getAttribute('value') == "LBG") {
-                document.getElementById('edmg').value = 0;
-                document.getElementById('sharp').value = "gun";
-              }
-          }
-        </script> 
-    </head>
-   <body>
-      <form action = "https://bb426b8b55ff4855805b74cae4a607ff.vfs.cloud9.us-east-2.amazonaws.com/mhw" method = "post">  
-         <p>Select Weapon:</p>
-         <p><select name = "weap" id = "weap" onchange="autoFill()">
+<script type="text/javascript">
+window.onload = function() {
+    var eSelect = document.getElementById('weap');
+    
+    eSelect.onchange = function() {
+        if(eSelect.value === "LBG") {
+            document.getElementById('edmg').value = 0;
+            document.getElementById('sharp').value = "gun";
+        } 
+     };
+  };
+  </script>
+<a href="#" onClick="autoFill(); return true;" >Click to Autofill</a>
+<form>
+  <p>
+    <label>Text Input: </label>
+    <input type="text" id="input1">
+  </p>
+  <p>
+    <label>Dropdown Input: </label>
+<p>Select Weapon:</p>
+         <p><select name = "weap" id = "weap">
            <option value="GS">Greatsword</option>
            <option value="LS">Longsword</option>
            <option value="hammer">Hammer</option>
@@ -32,9 +35,14 @@
            <option value="Bow">Bow</option>
            
          </select></p>
-         <p>Enter Damage:</p>
-         <p><input type = "number" name = "dmg" id = "dmg"/></p>
-         <p>Enter Element:</p>
+  </p>
+  <p>
+    <label>Radio Input: </label>
+       <input type="radio" name="input3" value="Radio1">First Radio
+       <input type="radio" name="input3" value="Radio2">Second Radio
+       <input type="radio" name="input3" value="Radio3">Third Radio
+  </p>
+  <p>Enter Element:</p>
          <p><input type = "number" name = "edmg" id = "edmg"/></p>
          <p>Select Sharpness:</p>
          <p><select name = "sharp" id = "sharp">
@@ -43,8 +51,4 @@
            <option value="white">White</option>
            <option value="gun">Bowgun</option>
          </select></p>
-         <p><input type = "submit" value = "submit" /></p>
-    </table>  
-      </form>  
-   </body>  
-</html>
+</form>
