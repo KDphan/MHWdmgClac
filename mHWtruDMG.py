@@ -47,17 +47,19 @@ def dmg_calc():
     green   = 1.05
     blue    = 1.20
     white   = 1.32
+    purple  = 1.39
   
   #Sharpness Modifiers for element damage
     Egun     = 1.00
     Egreen   = 1.00
     Eblue    = 1.0625
     Ewhite   = 1.125
+    Epurple  = 1.20 
   
     weapons = {'hammer': hammer, 'horn': horn, 'SA': SA,'GS': GS,'CB': CB,'LS': LS,'IG': IG,'LanceGL': LanceGL,'HBG': HBG,'SNS': SNS ,'DB': DB, 'LBG': LBG, 'Bow': Bow}
           
-    sharpness  = {'green': green, 'blue': blue, 'white': white, 'gun': gun}
-    Esharpness = {'green': Egreen, 'blue': Eblue, 'white': Ewhite, 'gun':Egun}
+    sharpness  = {'green': green, 'blue': blue, 'white': white, 'purple': purple, 'gun': gun}
+    Esharpness = {'green': Egreen, 'blue': Eblue, 'white': Ewhite, 'Epurple': Epurple, 'gun':Egun}
     
     eleSHRP = SHRP
     dmg_calc.truDmg = weapons[dmg_calc.WEAP]
